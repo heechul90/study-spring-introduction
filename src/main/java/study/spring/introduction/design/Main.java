@@ -2,6 +2,7 @@ package study.spring.introduction.design;
 
 import study.spring.introduction.design.adapter.*;
 import study.spring.introduction.design.aop.AopBrowser;
+import study.spring.introduction.design.decorator.*;
 import study.spring.introduction.design.proxy.Browser;
 import study.spring.introduction.design.proxy.BrowserProxy;
 import study.spring.introduction.design.proxy.IBrowser;
@@ -50,7 +51,7 @@ public class Main {
         browser.show();
         browser.show();*/
 
-        AtomicLong start = new AtomicLong();
+        /*AtomicLong start = new AtomicLong();
         AtomicLong end = new AtomicLong();
 
         AopBrowser aopBrowser = new AopBrowser("www.naver.com",
@@ -69,7 +70,24 @@ public class Main {
         System.out.println("loading time : " + end.get());
 
         aopBrowser.show();
-        System.out.println("loading time : " + end.get());
+        System.out.println("loading time : " + end.get());*/
+
+
+        //decorator
+        Audi audi = new Audi(1000);
+        audi.showPrice();
+
+        //a3
+        ICar audiA3 = new A3(audi, "A3");
+        audiA3.showPrice();
+
+        //a4
+        ICar audiA4 = new A4(audi, "A3");
+        audiA4.showPrice();
+
+        //a5
+        ICar audiA5 = new A5(audi, "A3");
+        audiA5.showPrice();
     }
 
     //콘센트
